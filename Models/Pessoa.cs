@@ -1,13 +1,15 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+
 namespace ApiCondominio.Models
 {
-    public class Pessoa
+    public partial class Pessoa
     {
-        public int idPessoa { get; set; }
-        public string nome { get; set; }
-        public DateTime dataNascimento { get; set; }
-        public string telefone { get; set; }
-        public string cpf { get; set; }
-        public string email { get; set; }
+        public int Idpessoa { get; set; }
+        public string Nome { get; set; }
+        public DateTime? Datanascimento { get; set; }
+        public string Telefone { get; set; }
+        public string Cpf { get; set; }
+        public string Email { get; set; }
     }
 }
