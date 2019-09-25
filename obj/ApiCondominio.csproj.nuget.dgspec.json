@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj": {}
+    "C:\\Users\\andre.zamberlam\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj": {
+    "C:\\Users\\andre.zamberlam\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj",
+        "projectUniqueName": "C:\\Users\\andre.zamberlam\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj",
         "projectName": "ApiCondominio",
-        "projectPath": "C:\\Users\\andre\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Documents\\GitHub\\ApiCondominio\\obj\\",
+        "projectPath": "C:\\Users\\andre.zamberlam\\Documents\\GitHub\\ApiCondominio\\ApiCondominio.csproj",
+        "packagesPath": "C:\\Users\\andre.zamberlam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre.zamberlam\\Documents\\GitHub\\ApiCondominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\andre.zamberlam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

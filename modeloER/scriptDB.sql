@@ -18,44 +18,71 @@ USE `dbcondominios`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `apartamento`
+-- Table structure for table `apartamento`
 --
 
-LOCK TABLES `apartamento` WRITE;
-/*!40000 ALTER TABLE `apartamento` DISABLE KEYS */;
-INSERT INTO `apartamento` VALUES (21,44,'H');
-/*!40000 ALTER TABLE `apartamento` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `apartamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apartamento` (
+  `idapartamento` int(11) NOT NULL AUTO_INCREMENT,
+  `numero` int(11) DEFAULT NULL,
+  `bloco` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idapartamento`),
+  UNIQUE KEY `idapartamento_UNIQUE` (`idapartamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `apartamentopessoa`
+-- Table structure for table `apartamentopessoa`
 --
 
-LOCK TABLES `apartamentopessoa` WRITE;
-/*!40000 ALTER TABLE `apartamentopessoa` DISABLE KEYS */;
-INSERT INTO `apartamentopessoa` VALUES (21,25);
-/*!40000 ALTER TABLE `apartamentopessoa` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `apartamentopessoa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apartamentopessoa` (
+  `idapartamento` int(11) NOT NULL,
+  `idpessoa` int(11) NOT NULL,
+  PRIMARY KEY (`idapartamento`,`idpessoa`),
+  KEY `idpessoa_idx` (`idpessoa`),
+  CONSTRAINT `idapartamento` FOREIGN KEY (`idapartamento`) REFERENCES `apartamento` (`idapartamento`),
+  CONSTRAINT `idpessoa` FOREIGN KEY (`idpessoa`) REFERENCES `pessoa` (`idpessoa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pessoa`
+-- Table structure for table `pessoa`
 --
 
-LOCK TABLES `pessoa` WRITE;
-/*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (25,'andre','2019-09-25','55 999354009','01814018000','email@teste.com'),(26,'asdasd','2019-09-18','888888888','018140180009','asdasdasd');
-/*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `pessoa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pessoa` (
+  `idpessoa` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) DEFAULT NULL,
+  `datanascimento` date DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `cpf` varchar(45) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`idpessoa`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Table structure for table `usuario`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (26,'123@123','202cb962ac59075b964b07152d234b70'),(28,'qwe@qwe','5deb466b0e4c0c313bc6ac950d4247c4'),(29,'asd@asddddd','7815696ecbf1c96e6894b779456d330e'),(30,'asd@asdddddd','7815696ecbf1c96e6894b779456d330e'),(31,'asd@asd','202cb962ac59075b964b07152d234b70'),(32,'aaaa@aaaa','202cb962ac59075b964b07152d234b70'),(33,'aaa@bbb','194401b525555e3c08f287a14bfdd4e6'),(34,'ccc@ccc','f8b5d084bacca8413ef9f1b4542dcec0');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(300) NOT NULL,
+  `senha` varchar(300) NOT NULL,
+  PRIMARY KEY (`idusuario`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -66,4 +93,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-25  2:42:24
+-- Dump completed on 2019-09-23 13:23:00
