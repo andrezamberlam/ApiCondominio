@@ -8,6 +8,8 @@ PARA INICIAR A API:
 
 - Importar as configurações do banco, script abaixo.
 
+- Ir até o arquivo appsettings.json e alterar a condominiosDatabase.
+
 - rodar no console: dotnet run
 
 
