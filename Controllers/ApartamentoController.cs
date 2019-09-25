@@ -20,6 +20,29 @@ namespace ApiCondominio.Controllers
 
         public IActionResult Index()
         {
+            // IList<Apartamento> apes = _context.Apartamento.ToList();
+            // dynamic listaDinamica = apes;
+            // foreach (Apartamento ape in listaDinamica)
+            // {
+            //     IList<Apartamentopessoa> apepes = _context.Apartamentopessoa.Where(x => x.Idapartamento == ape.Idapartamento).ToList();
+
+            //     IList<Pessoa> pesList = null;
+            //     foreach (Apartamentopessoa item in apepes)
+            //     {
+            //         Pessoa pes = _context.Pessoa.SingleOrDefault(x => x.Idpessoa == item.Idpessoa);
+            //         if(pes != null)
+            //             pesList.Add(pes);
+            //     }
+
+
+            //     ape
+            //     listaDinamica.Where(x => x.);
+
+
+
+                
+            //     IList<Pessoa> pessoas = _context.Pessoa.Where(x => x.Apartamentopessoa.)
+            // }
             return Ok(_context.Apartamento.ToArray().OrderBy(x => x.Numero));
         }
 
