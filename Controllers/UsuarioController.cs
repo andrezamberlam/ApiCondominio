@@ -17,6 +17,7 @@ namespace ApiCondominio.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : Controller
     {
+        readonly string SUPERSECRETA = "OPA";
         private dbcondominiosContext _context;
 
         public UsuarioController(dbcondominiosContext context)
@@ -30,11 +31,9 @@ namespace ApiCondominio.Controllers
             return Ok(_context.Usuario.ToArray());
         }
 
-        [Route("cadastrar"),HttpPost, AllowAnonymous]
+        [Route("cadastrar"), HttpPost, AllowAnonymous]
         public IActionResult cadastrar([FromForm]Usuario Usuario)
         {
-            //MD5.Create();
-            //string senhaMD5 = GetMd5Hash(MD5.Create(),Usuario.Senha);
             if (string.IsNullOrWhiteSpace(Usuario.Email) || string.IsNullOrWhiteSpace(Usuario.Senha))
             {
                 return Ok(new
@@ -47,13 +46,13 @@ namespace ApiCondominio.Controllers
             if (usuarioBanco != null)
             {
                 return Ok(new
-                {                    
+                {
                     error = true,
                     message = "Usuario ja cadastrado."
                 });
             }
 
-            Usuario.Senha = GetMd5Hash(MD5.Create(), Usuario.Senha);
+            Usuario.Senha = GetMd5Hash(MD5.Create(), Usuario.Senha + SUPERSECRETA);
 
             _context.Usuario.Add(Usuario);
             _context.SaveChanges();
@@ -75,7 +74,7 @@ namespace ApiCondominio.Controllers
                 var usuarioBase = _context.Usuario.SingleOrDefault(x => x.Email == usuario.Email);
                 credenciaisValidas = (usuarioBase != null &&
                     usuario.Email == usuarioBase.Email &&
-                    VerifyMd5Hash(MD5.Create(), usuario.Senha, usuarioBase.Senha));
+                    VerifyMd5Hash(MD5.Create(), usuario.Senha + SUPERSECRETA, usuarioBase.Senha));
             }
 
             if (credenciaisValidas)
